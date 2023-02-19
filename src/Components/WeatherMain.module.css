@@ -29,8 +29,6 @@
 .weatherWrapper form {
   display: inline-flex;
   flex-wrap: wrap;
-  margin-top: 25px;
-  
 }
 input {
   display: flex;
@@ -53,6 +51,13 @@ input {
   margin-right: 5px;
   margin-top: 5px;
   color: #484b54;
+  background-color: inherit;
+}
+.button:hover {
+  color: #69a2e4;
+}
+.button:active {
+  color: black;
 }
 button {
   background-color: #fff;

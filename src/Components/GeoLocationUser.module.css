@@ -1,0 +1,14 @@
+.svg {
+  color: rgb(253, 252, 252);
+  font-size: 40px;
+  margin-right: 10px;
+}
+
+.svg:hover {
+  color: #69a2e4;
+  cursor: pointer;
+}
+.svg:active {
+  color: #020a13;
+  cursor: pointer;
+}
