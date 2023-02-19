@@ -1,0 +1,70 @@
+.weatherWrapper {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #1b4778;
+  width: 70%;
+  padding: 20px;
+  margin-top: 25px;
+  border-radius: 5px 5px 0 0;
+}
+.citi h2 {
+  margin-right: 10px;
+  margin-top: 10px;
+  color: white;
+  font-size: 50px;
+}
+.citi span {
+  display: flex;
+  align-items: flex-end;
+  font-size: 20px;
+  padding-bottom: 3px;
+  color: white;
+}
+.citi {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+.weatherWrapper form {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  
+}
+input {
+  display: flex;
+  background-color: #fff;
+  color: #484b54;
+  border: 0;
+  border-radius: 2px;
+  font-size: 18px;
+  text-indent: 0px;
+  cursor: text;
+  z-index: 10;
+  width: 350px;
+  outline: none;
+  height: 40px;
+}
+
+.button {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  margin-top: 5px;
+  color: #484b54;
+}
+button {
+  background-color: #fff;
+  border: 0px;
+  cursor: pointer;
+}
+
+.weatherDisplay {
+  display: inline-flex;
+  background-color: #484b54;
+  width: 70%;
+  padding: 20px;
+  background-color: #235a98;
+  border-radius: 0 0 5px 5px;
+}
