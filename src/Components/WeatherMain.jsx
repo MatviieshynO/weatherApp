@@ -22,7 +22,6 @@ const WeatherMain = () => {
   })
   // console.log(latitude, longitude)
   // console.log(geonames[0]?.name)
-  console.log(isTrue)
   //Fucn GPS
   const APIKEY1 = 'olo21442'
   async function getUserCountryPosition() {
@@ -30,11 +29,28 @@ const WeatherMain = () => {
       alert('no latitude and longitude')
     } else {
       const fetchData = await fetch(
-        `http://api.geonames.org/findNearbyPlaceNameJSON?lat=${latitude}&lng=${longitude}&username=${APIKEY1}`
+        `http://api.geonames.org/findNearbyPlaceNameJSON?lat=${latitude}&lng=${longitude}&username=olo21442`
       ).then((res) => res.json())
       setuserCountryPosition(fetchData)
-      setIsTrue(true)
+      console.log(fetchData)
     }
+    console.log(geonames)
+    /////////////////////////////////////////
+    // if (!geonames[0]?.name) {
+    //   console.log('we need data [geonames[0].name]')
+    // } else {
+    const fetchData = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=Olawa,&APPID=${APIKEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => data)
+
+    if (fetchData.cod == 200) {
+      setDataWeather(fetchData)
+    } else {
+      alert('Enter the correct city')
+    }
+    // }
   }
 
   //FuncWeather
@@ -70,20 +86,16 @@ const WeatherMain = () => {
         <div style={{ display: 'inlineFlex', justifyContent: 'center' }}>
           {dataWeather.length == 0 ? (
             <div>
-              <GeoLocationUser
+              {/* <GeoLocationUser
                 getUserCountryPosition={getUserCountryPosition}
-              />
+              /> */}
               <form
                 style={{ marginRight: '220px' }}
                 onSubmit={(e) => onFormSubmitHundler(e)}
               >
                 <input
                   type="text"
-                  onChange={(e) => {
-                    isTrue == true
-                      ? setInputValue(geonames[0]?.name)
-                      : setInputValue(e.target.value)
-                  }}
+                  onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Enter citi please"
                   style={{ width: '550px' }}
                 />
@@ -100,11 +112,7 @@ const WeatherMain = () => {
               <form onSubmit={(e) => onFormSubmitHundler(e)}>
                 <input
                   type="text"
-                  onChange={(e) => {
-                    isTrue === true
-                      ? setInputValue(geonames[0]?.name)
-                      : setInputValue(e.target.value)
-                  }}
+                  onChange={(e) => setInputValue(e.target.value)}
                   placeholder="Enter citi"
                 />
                 <button>
