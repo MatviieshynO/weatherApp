@@ -40,7 +40,7 @@ const WeatherMain = () => {
     //   console.log('we need data [geonames[0].name]')
     // } else {
     const fetchData = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Olawa,&APPID=${APIKEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${geonames[0]?.name},&APPID=${APIKEY}`
     )
       .then((res) => res.json())
       .then((data) => data)
