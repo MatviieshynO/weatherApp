@@ -16,11 +16,11 @@ import Style from './WeatherDisplay.module.css'
 const WeatherDisplay = ({ dataWeather }) => {
   const iconsWeather = () => {
     if (
-      dataWeather.weather[0].main == 'Snow' &&
-      dataWeather.weather[0].main == 'Rein'
+      dataWeather.weather[0].main === 'Snow' &&
+      dataWeather.weather[0].main === 'Rain'
     ) {
       return <WiNightAltRainMix className={Style.imageWeather} />
-    } else if (dataWeather.weather[0].main == 'Clear') {
+    } else if (dataWeather.weather[0].main === 'Clear') {
       return <WiDaySunny className={Style.imageWeather} />
     } else {
       return <WiCloudy className={Style.imageWeather} />
@@ -98,7 +98,7 @@ const WeatherDisplay = ({ dataWeather }) => {
             </div>
             <div
               style={{
-                display: 'Flex',
+                display: 'flex',
                 justifyContent: 'space-around',
                 marginTop: '10px',
               }}
@@ -127,7 +127,7 @@ const WeatherDisplay = ({ dataWeather }) => {
             </div>
             <div
               style={{
-                display: 'Flex',
+                display: 'flex',
                 justifyContent: 'space-around',
                 marginTop: '10px',
               }}
@@ -184,4 +184,5 @@ const WeatherDisplay = ({ dataWeather }) => {
   }
 }
 
+WeatherDisplay.displayName = "WeatherDisplay"
 export default WeatherDisplay

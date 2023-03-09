@@ -9,20 +9,20 @@
   margin-top: 25px;
   border-radius: 5px 5px 0 0;
 }
-.citi h2 {
+.city h2 {
   margin-right: 10px;
   margin-top: 10px;
   color: white;
   font-size: 50px;
 }
-.citi span {
+.city span {
   display: flex;
   align-items: flex-end;
   font-size: 20px;
   padding-bottom: 3px;
   color: white;
 }
-.citi {
+.city {
   display: inline-flex;
   flex-wrap: wrap;
 }

@@ -11,4 +11,5 @@ const GeoLocationUser = ({ getUserCountryPosition }) => {
   )
 }
 
+GeoLocationUser.displayName = "GeoLocationUser"
 export default GeoLocationUser

@@ -12,7 +12,6 @@ const WeatherMain = () => {
   const [userCountryPosition, setuserCountryPosition] = useState([])
   const [latitude, setLatitude] = useState(null)
   const [longitude, setlongitude] = useState(null)
-  const [isTrue, setIsTrue] = useState(false)
 
   const { sys } = dataWeather
   const { geonames } = userCountryPosition
@@ -24,13 +23,14 @@ const WeatherMain = () => {
   // console.log(geonames[0]?.name)
   //Fucn GPS
   const APIKEY1 = 'olo21442'
+  const GEONAMES_USER_NAME = "olo21442";
   async function getUserCountryPosition() {
-    if (latitude == null || longitude == null) {
-      alert('no latitude and longitude')
+    if (latitude === null || longitude === null) {
+      alert('please provide both latitude and longitude')
     } else {
       const fetchData = await fetch(
-        `http://api.geonames.org/findNearbyPlaceNameJSON?lat=${latitude}&lng=${longitude}&username=olo21442`
-      ).then((res) => res.json())
+        `http://api.geonames.org/findNearbyPlaceNameJSON?lat=${latitude}&lng=${longitude}&username=${GEONAMES_USER_NAME}`
+      ).then((res) => res.json());
       setuserCountryPosition(fetchData)
       console.log(fetchData)
     }
@@ -45,7 +45,7 @@ const WeatherMain = () => {
       .then((res) => res.json())
       .then((data) => data)
 
-    if (fetchData.cod == 200) {
+    if (fetchData.code === 200) {
       setDataWeather(fetchData)
     } else {
       alert('Enter the correct city')
@@ -58,7 +58,7 @@ const WeatherMain = () => {
   const APIKEY = '249a98dbac6bbd08955db7cf04c3763d'
   async function onFormSubmitHundler(e) {
     e.preventDefault()
-    if (inputValue == '') {
+    if (inputValue === '') {
       alert('Enter the city')
     } else {
       const fetchData = await fetch(
@@ -67,7 +67,7 @@ const WeatherMain = () => {
         .then((res) => res.json())
         .then((data) => data)
 
-      if (fetchData.cod == 200) {
+      if (fetchData.code === 200) {
         setDataWeather(fetchData)
       } else {
         alert('Enter the correct city')
@@ -77,14 +77,14 @@ const WeatherMain = () => {
   return (
     <div>
       <div className={Style.weatherWrapper}>
-        <div className={Style.citi}>
+        <div className={Style.city}>
           <h2>{dataWeather?.name}</h2>
           <span>{sys?.country}</span>
           {/* <span>{geonames[0]?.name}</span> */}
         </div>
 
         <div style={{ display: 'inlineFlex', justifyContent: 'center' }}>
-          {dataWeather.length == 0 ? (
+          {dataWeather.length === 0 ? (
             <div>
               {/* <GeoLocationUser
                 getUserCountryPosition={getUserCountryPosition}
@@ -96,7 +96,7 @@ const WeatherMain = () => {
                 <input
                   type="text"
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Enter citi please"
+                  placeholder="Enter city please"
                   style={{ width: '550px' }}
                 />
                 <button>
@@ -113,7 +113,7 @@ const WeatherMain = () => {
                 <input
                   type="text"
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Enter citi"
+                  placeholder="Enter city"
                 />
                 <button>
                   <MdSearch className={Style.button} title="Search" />
@@ -133,4 +133,5 @@ const WeatherMain = () => {
   )
 }
 
+WeatherMain.displayName = 'WeatherMain'
 export default WeatherMain
