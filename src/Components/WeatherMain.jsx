@@ -77,7 +77,7 @@ const WeatherMain = () => {
   return (
     <div>
       <div className={Style.weatherWrapper}>
-        <div className={Style.citi}>
+        <div className={Style.city}>
           <h2>{dataWeather?.name}</h2>
           <span>{sys?.country}</span>
           {/* <span>{geonames[0]?.name}</span> */}
@@ -96,7 +96,7 @@ const WeatherMain = () => {
                 <input
                   type="text"
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Enter citi please"
+                  placeholder="Enter city please"
                   style={{ width: '550px' }}
                 />
                 <button>
@@ -113,7 +113,7 @@ const WeatherMain = () => {
                 <input
                   type="text"
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Enter citi"
+                  placeholder="Enter city"
                 />
                 <button>
                   <MdSearch className={Style.button} title="Search" />
